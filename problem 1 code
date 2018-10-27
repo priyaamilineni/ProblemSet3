@@ -1,0 +1,23 @@
+#Problem 1
+#Open WaterLevel.csv
+try:
+    Data = open("documents\WaterLevel.csv")
+except:
+    print("can't open file")
+largest = None
+date = None
+print('Before:', largest)
+for line in Data:
+    #print(line)
+    #turns data into a list split by commas
+    line_bits = line.split(",")
+    try:
+        water_level = float(line_bits[1])#water level is at line_bits1
+    except:
+        continue
+    #print(line_bits[1])
+    if largest is None or water_level > largest :
+        largest = water_level
+        date = line_bits[0]#date is at line_bits0
+print(largest)
+print(date)
