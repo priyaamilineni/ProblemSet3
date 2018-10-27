@@ -1,0 +1,13 @@
+#Problem 2
+#create data frame using pandas
+
+import pandas as pd
+
+df = pd.read_csv('~\documents\WaterLevel.csv')
+df.head()
+
+#Find max water level
+df[' Water Level'].max()
+
+#date and time highest water level was observed
+df.loc[df[' Water Level'].idxmax()]
