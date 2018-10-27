@@ -1,0 +1,19 @@
+#Problem 3
+#Create data frame using pandas
+
+import pandas as pd
+
+df = pd.read_csv('~\documents\WaterLevel.csv')
+df.head()
+
+#Subtract each row of " Water Level" data from the one above it (six minute intervals) and create a new column
+
+df['Diff'] = df[' Water Level'] - df[' Water Level'].shift(1)
+
+#Find the maximum difference
+
+df['Diff'].max()
+
+#print row with maximum difference
+
+df.loc[df['Diff'].idxmax()]
